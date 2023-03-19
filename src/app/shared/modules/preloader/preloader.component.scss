@@ -1,0 +1,43 @@
+@import "../../../../assets/scss/shared";
+
+.preloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 9999;
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: $colorDarkBlue;
+
+  svg{
+    g.ldl-scale{
+      transform-origin: 50% 50%;
+      transform: rotate(0deg) scale(0.8, 0.8);
+    }
+
+    g.ldl-ani{
+      transform-origin: 50px 50px;
+      transform: rotate(0deg);
+      animation: 1.11111s linear 0s infinite normal forwards running spin;
+    }
+
+    path{
+      cursor: default;
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      animation-timing-function: cubic-bezier(0.5856,0.0703,0.4143,0.9297);
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Golos", "Helvetica Neue", sans-serif;
+}
+
+@import "assets/scss/variables";
+@import "assets/scss/fonts";
+@import "assets/scss/mediaqueries";
+@import "assets/scss/base";
+@import "assets/scss/helper";
+@import "assets/scss/icons";

@@ -1,0 +1,34 @@
+<div class="ticket-system__header">
+  <div class="ticket-system__header-top">
+    <app-return-block *ngIf="!isHided"></app-return-block>
+    <app-match-info></app-match-info>
+    <app-slider class="hide-mobile"></app-slider>
+  </div>
+  <div class="ticket-system__filter-button-mob">
+    <div class="ticket-system__filter-button-mob__text">Фильтры</div>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+      <style>svg {
+        cursor: pointer;
+      }</style>
+      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+            stroke="#69738A" d="M5.333 28v-9.333"></path>
+      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+            stroke="#69738A" d="M5.333 13.333v-9.333"></path>
+      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+            stroke="#69738A" d="M16 28v-12"></path>
+      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+            stroke="#69738A" d="M16 10.667v-6.667"></path>
+      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+            stroke="#69738A" d="M26.667 28v-6.667"></path>
+      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+            stroke="#69738A" d="M26.667 16v-12"></path>
+      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+            stroke="#69738A" d="M1.333 18.666h8"></path>
+      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+            stroke="#69738A" d="M12 10.666h8"></path>
+      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+            stroke="#69738A" d="M22.667 21.334h8"></path>
+    </svg>
+  </div>
+  <app-title-with-services></app-title-with-services>
+</div>

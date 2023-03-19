@@ -1,0 +1,11 @@
+<div class="custom-slider">
+  <div class="ticket-system__slider-description">цена</div>
+  <div class="ticket-system__slider-text-value min">{{minValue | numberFormat : 0 : '' : ' '}} ₽</div>
+  <ngx-slider
+    [(value)]="minValue"
+    [(highValue)]="maxValue"
+    [options]="options"
+    (userChangeEnd)="onUserChangeEnd($event)"
+  ></ngx-slider>
+  <div class="ticket-system__slider-text-value max">{{maxValue | numberFormat : 0 : '' : ' '}} ₽</div>
+</div>

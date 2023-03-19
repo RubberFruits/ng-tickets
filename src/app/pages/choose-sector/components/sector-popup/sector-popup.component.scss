@@ -1,0 +1,181 @@
+@import "../../../../../assets/scss/shared";
+
+:host{
+  .ticket-system__popup-choose-sector{
+    display: none;
+    position: fixed;
+    z-index: 990;
+    left: 50%;
+    top: 50%;
+    width: auto;
+    height: 119px;
+    background-color: white;
+    border-radius: 4px;
+
+    .bone-sector-name {
+      @include mobile {
+        display: block;
+      }
+    }
+
+    &.ticket-system__popup-choose-place{
+      height: 98px;
+      width: auto;
+
+      .ticket-system__popup-choose-sector-info{
+        padding:11px 17px 0 23px;
+      }
+    }
+
+    @include mobile{
+      top: 0 !important;
+      left:  0 !important;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+
+      &:not(.ticket-system__popup-choose-place){
+        height: 192px;
+        margin-top: auto;
+        bottom: 0;
+      }
+    }
+
+    &.ticket-system__popup-show{
+      display: block;
+      opacity:1;
+      @include mobile {
+        top: 0 !important;
+
+        &:before {
+          display: block;
+        }
+      }
+    }
+
+    &.ticket-system__popup-show-effect{
+      .ticket-system__popup-choose-sector-content{
+        @include mobile {
+          opacity: 1;
+        }
+      }
+    }
+
+    .ticket-system__popup-choose-sector-content{
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: opacity .4s ease;
+
+      @include mobile{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        width:100%;
+        height: auto;
+        opacity: 0;
+        max-width: none;
+        padding:16px 13px 19px 13px;
+        border-radius: 20px 20px 0 0;
+        -webkit-box-shadow: 0px -5px 3px -2px rgba(34, 60, 80, 0.31);
+        -moz-box-shadow: 0px -5px 3px -2px rgba(34, 60, 80, 0.31);
+        box-shadow: 0px -5px 3px -2px rgba(34, 60, 80, 0.31);
+      }
+
+      //декоративная штука слева
+      .ticket-system__popup-choose-sector-decorate{
+        display: block;
+        width: 8px;
+        height: 100%;
+        position: absolute;
+        border-radius: 4px 0 0 4px;
+        background: #FFD300;
+
+        @include mobile{
+          display: none;
+        }
+
+        .ticket-system__popup-choose-sector-decorate-square{
+          display: block;
+          position: absolute;
+          width: 9px;
+          height: 9px;
+          top: 50%;
+          left: 1px;
+          border-radius: 2px;
+          transform: rotate(-45deg) translateY(-50%);
+          background: #FFD300;
+        }
+      }
+
+      //инфо о матче
+      .ticket-system__popup-choose-sector-info{
+        display: flex;
+        flex-direction: column;
+        padding-top: 11px;
+        padding-left: 23px;
+        padding-right: 35px;
+
+        @include mobile{
+          padding-top: 0;
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        .ticket-system__popup-choose-sector-header{
+          @extend .ticket-system__text-1;
+          color: $colorDarkBlue;
+          font-weight: 600;
+        }
+
+        .ticket-system__popup-choose-sector-free-places{
+          @extend .ticket-system__text-3;
+          color: #AFAFAF;
+          margin-top: 3px;
+        }
+
+        .ticket-system__popup-choose-sector-hr{
+          height: 1px;
+          background: #EBEBEB;
+          width: 100%;
+          margin: 11px 0;
+        }
+
+        .ticket-system__popup-choose-sector-price{
+          @extend .ticket-system__headline-2;
+          color: $colorDarkBlue;
+
+          @include mobile{
+            margin-bottom: 16px;
+          }
+
+          .ticket-system__popup-choose-sector-price-text{
+            @extend .ticket-system__text-3;
+            color: #AFAFAF;
+          }
+        }
+      }
+
+      .ticket-system__popup-choose-close-block{
+        @include mobile{
+          display: block;
+          width: 28px;
+          height: 28px;
+          position: absolute;
+          top: 23px;
+          right: 16px;
+
+          .ticket-system__icon__close{
+            background-color:  #939393;
+          }
+        }
+      }
+    }
+  }
+
+  .ticket-system__popup-choose-sector-price-value-not-in-slider-bounds{
+    color: $colorGrayText;
+  }
+}

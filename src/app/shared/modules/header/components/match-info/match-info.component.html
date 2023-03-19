@@ -1,0 +1,14 @@
+<ng-container>
+  <div *ngIf="matchInfo" class="ticket-system__match-team-icons-block">
+    <div
+      *ngFor="let team of matchInfo.teams"
+      class="ticket-system__match-team-icon"
+      [style.background-image]="'url(' + team.image + ')'"
+    ></div>
+  </div>
+  <div *ngIf="matchInfo" class="ticket-system__match-team-text-block">
+    <div class="ticket-system__match-teams-text">{{matchInfo.teams[0].name || ''}} — {{matchInfo.teams[1].name || ''}}</div>
+    <div class="ticket-system__match-date">{{matchInfo.date || ''}}</div>
+  </div>
+  <app-language-switcher class="hide-desktop"></app-language-switcher>
+</ng-container>

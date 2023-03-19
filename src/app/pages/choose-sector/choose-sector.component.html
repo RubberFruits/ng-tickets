@@ -1,0 +1,36 @@
+<div class="ticket-system__choose-sector-drawing-block">
+  <div class="ticket-system__choose-sector-drawing" id="choose_sector_svg_container">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 870 798">
+      <image width="100%" height="100%" xlink:href="/assets/img/arenas/solidarnost-arena.svg" x="0" y="0"></image>
+      <path
+        *ngFor="let sector of sectors"
+        [attr.data-id]="sector.id"
+        [attr.d]="sector.coordinates"
+        [attr.fill] = "getInitialSectorColor(sector)"
+        [attr.stroke-dasharray]="getInitialSectorStrokeParams(sector.id).dasharray"
+        [attr.stroke-opacity]="getInitialSectorStrokeParams(sector.id).opacity"
+        [attr.stroke-width]="getInitialSectorStrokeParams(sector.id).width"
+        [attr.stroke]="getInitialSectorStrokeParams(sector.id).color"
+        (mouseenter)="sectorHover(sector.id)"
+        (mouseleave)="sectorBlur()"
+      ></path>
+      <text
+        *ngFor="let sector of sectors"
+        [attr.font-family]="'Golos'"
+        [attr.font-size]="'10px'"
+        [attr.text-anchor]="'middle'"
+        [attr.x]="sector.textX"
+        [attr.y]="sector.textY"
+        [attr.fill]="sector.textColor"
+        style="text-transform: uppercase;font-weight:600;pointer-events:none;"
+        [attr.transform]="'rotate(' + sector.textRotate + ' ' +  sector.textX + ' ' + sector.textY + ')'"
+      >
+        <tspan
+          [attr.dy]="0"
+          [attr.x]="sector.textX"
+        >{{sector.name}}</tspan>
+      </text>
+    </svg>
+  </div>
+</div>
+<app-sector-popup></app-sector-popup>

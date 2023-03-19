@@ -1,0 +1,56 @@
+@import "../../../../assets/scss/shared";
+
+.ticket-system__header{
+  border-bottom: 1px solid $lightBorderColor;
+  display: block;
+  position: relative;
+
+  @include desktop{
+    border-bottom: none;
+  }
+
+  @include mobile{
+    padding-bottom: 23px;
+  }
+
+  .ticket-system__header-top{
+    display: block;
+    height: 75px;
+    position: relative;
+    max-width: 100%;
+    border-bottom: 1px solid #27365b;
+
+    @include desktop{
+      display: flex;
+      padding: 0 17%;
+    }
+  }
+
+  .ticket-system__filter-button-mob{
+    align-items: center;
+    border: 1px solid #69738a;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 16px;
+    padding: 13px 17px;
+
+    @include desktop{
+      display: none !important;
+    }
+
+    .ticket-system__filter-button-mob__text{
+      color: #fff;
+      font-family: Golos,serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 22px;
+      margin: 0;
+    }
+
+    svg{
+      height: 20px;
+      width: 20px;
+    }
+  }
+}

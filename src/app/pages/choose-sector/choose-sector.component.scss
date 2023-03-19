@@ -1,0 +1,67 @@
+@import "../../../assets/scss/shared";
+
+:host {
+  display: block;
+  height: auto;
+  width: 100%;
+  padding-bottom: 1px;
+
+  .ticket-system__choose-sector-drawing-block {
+    width: 100%;
+
+    @include desktop {
+      margin: 0 auto;
+      padding-bottom: 60px;
+      width: 45%;
+    }
+
+    @include desktop-small {
+      width: 50%;
+    }
+
+    @include mobile {
+      margin: 25px auto 100px;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .ticket-system__choose-sector-drawing {
+      display: block;
+      width: 100%;
+
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  #choose_sector_svg_container {
+    border-radius: 40%;
+    box-shadow: 0 0 24px #1d2e56;
+    height: auto;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .svg-arena {
+      width: 100%;
+      height: 100%;
+    }
+
+    path {
+      transition: fill .15s linear;
+
+      &.hided-in-blur {
+        fill: #0b193b;
+      }
+    }
+
+    text {
+      transition: fill .15s linear;
+    }
+  }
+}

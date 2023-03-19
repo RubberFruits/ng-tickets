@@ -1,0 +1,186 @@
+@import "variables";
+@import "mediaqueries";
+
+.ticket-system__bg-darkblue{
+  background-color:$colorDarkBlue;
+}
+
+.ticket-system__color-white{
+  color: white;
+}
+
+.ticket-system__border-bottom-blue{
+  border-bottom: 1px solid #27365B;
+}
+
+.ticket-system__border-bottom-gray{
+  border-bottom: 1px solid #D9D9D9;
+}
+
+.ticket-system__hide {
+  display: none !important;
+}
+
+.ticket-system__hide-desktop {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+.ticket-system__hide-tablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.ticket-system__hide-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.ticket-system__hide-only-mobile {
+  @include only-mobile {
+    display: none !important;
+  }
+}
+
+.hide-desktop{
+  @include desktop{
+    display: none !important;
+  }
+}
+
+.hide{
+  display: none !important;
+}
+
+.hide-mobile{
+  @include mobile{
+    display: none !important;
+  }
+}
+
+//margin
+
+.ticket-system__margin-top-8 {
+  margin-top: $indent8 !important;
+}
+
+.ticket-system__margin-top-10 {
+  margin-top: $indent10 !important;
+}
+
+.ticket-system__margin-top-15 {
+  margin-top: $indent15 !important;
+}
+
+.ticket-system__margin-top-20 {
+  margin-top: $indent20 !important;
+}
+
+.ticket-system__margin-top-25 {
+  margin-top: $indent25 !important;
+}
+
+.ticket-system__margin-top-30 {
+  margin-top: $indent30 !important;
+}
+
+.ticket-system__no-margin {
+  margin: 0 !important;
+}
+
+.ticket-system__no-margin-top {
+  margin-top: 0 !important;
+}
+
+.ticket-system__no-margin-bottom {
+  margin-bottom: 0 !important;
+}
+
+.ticket-system__no-margin-left {
+  margin-left: 0 !important;
+}
+
+.ticket-system__no-margin-right {
+  margin-right: 0 !important;
+}
+
+//padding
+
+.ticket-system__padding-top-8 {
+  padding-top: $indent8 !important;
+}
+
+.ticket-system__padding-top-10 {
+  padding-top: $indent10 !important;
+}
+
+.ticket-system__padding-top-15 {
+  padding-top: $indent15 !important;
+}
+
+.ticket-system__padding-top-20 {
+  padding-top: $indent20 !important;
+}
+
+.ticket-system__padding-top-25 {
+  padding-top: $indent25 !important;
+}
+
+.ticket-system__padding-top-30 {
+  padding-top: $indent30 !important;
+}
+
+.ticket-system__no-padding {
+  padding: 0 !important;
+}
+
+.ticket-system__no-padding-top {
+  padding-top: 0 !important;
+}
+
+.ticket-system__no-padding-bottom {
+  padding-bottom: 0 !important;
+}
+
+.ticket-system__no-padding-left {
+  padding-left: 0 !important;
+}
+
+.ticket-system__no-padding-right {
+  padding-right: 0 !important;
+}
+
+.ticket-system__no-padding-top-mobile{
+  @include mobile {
+    padding-top:0 !important;
+  }
+}
+
+.ticket-system__no-padding-bottom-mobile{
+  @include mobile {
+    padding-bottom:0 !important;
+  }
+}
+
+.ticket-system__text-align-left {
+  text-align: left !important;
+}
+
+.ticket-system__text-align-center {
+  text-align: center !important;
+}
+
+.ticket-system__text-align-right {
+  text-align: right !important;
+}
+
+.ticket-system__text-align-left-mobile{
+  @include mobile {
+    text-align: left!important;
+  }
+}
+
+

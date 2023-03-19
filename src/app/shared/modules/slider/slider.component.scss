@@ -1,0 +1,73 @@
+
+:host{
+  align-items: center;
+  display: flex;
+  margin-left: 14%;
+  width: 100%;
+
+  .custom-slider{
+    width: 60%;
+    display: flex;
+    align-items: center;
+
+    .ticket-system__slider-description{
+      font-weight: 600;
+      margin-right: 22px;
+      text-transform: uppercase;
+      font-size: 12px;
+      line-height: 133.52%;
+      color: #fff;
+    }
+
+    .ticket-system__slider-text-value{
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 16px;
+      white-space: nowrap;
+      width: 50px;
+      color: white;
+      flex-shrink: 0;
+
+      &.min{
+        margin-right: 10px;
+      }
+
+      &.max{
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  .custom-slider {
+    .ngx-slider {
+      margin: 15px 0 15px;
+
+      .ngx-slider-bar{
+        background: rgba(222,228,236,.5);
+
+        &.ngx-slider-selection{
+          background: #e4e7eb;
+        }
+      }
+
+      .ngx-slider-pointer {
+        background-color: white;
+        background-position: 50% 60%;
+        background-repeat: no-repeat;
+        background-size: 71%;
+        background-image: url('/assets/img/icons/range.svg');
+        width: 20px;
+        height: 20px;
+        top: -8px;
+
+        &:after{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+

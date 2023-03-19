@@ -1,0 +1,51 @@
+.ticket-system__icon{
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  -webkit-mask-size: cover;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  cursor: pointer;
+  background-color: white;
+
+  &__zoom-in{
+    @extend .ticket-system__icon;
+    -webkit-mask-image: url("/assets/img/icons/zoom-in.svg");
+    mask-image: url("/assets/img/icons/zoom-in.svg");
+    background-color: #0063FF;
+  }
+
+  &__zoom-out{
+    @extend .ticket-system__icon;
+    -webkit-mask-image: url('/assets/img/icons/zoom-out.svg');
+    mask-image: url('/assets/img/icons/zoom-out.svg');
+    background-color: #C5D2E8;
+  }
+
+  &__close{
+    @extend .ticket-system__icon;
+    -webkit-mask-image: url('/assets/img/icons/close.svg');
+    mask-image: url('/assets/img/icons/close.svg');
+
+    &.order-info{
+      -webkit-mask-image: url('/assets/img/icons/del_ticket_order-info.svg');
+      mask-image: url('/assets/img/icons/del_ticket_order-info.svg');
+    }
+  }
+
+  &__popup-arrow{
+    @extend .ticket-system__icon;
+    -webkit-mask-image: url("/assets/img/icons/popup-arrow.svg");
+    mask-image: url("/assets/img/icons/popup-arrow.svg");
+  }
+
+  &__range{
+    @extend .ticket-system__icon;
+    -webkit-mask-image: url("/assets/img/icons/range.svg");
+    mask-image: url("/assets/img/icons/range.svg");
+  }
+}

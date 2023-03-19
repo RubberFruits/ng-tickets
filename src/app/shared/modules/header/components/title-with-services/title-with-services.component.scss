@@ -1,0 +1,55 @@
+@import "../../../../../../assets/scss/shared";
+
+:host{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 16px 5px;
+
+  @include desktop{
+    margin-left: 17%;
+    margin-right: 17%;
+    margin-top: 32px;
+  }
+
+  .ticket-system__title-text{
+    font-size: 22px;
+    line-height: 26px;
+    color: #fff;
+    font-weight: 600;
+
+    @include desktop{
+      font-size: 32px;
+      line-height: 38px;
+    }
+  }
+
+  .ticket-system__zoom-block{
+    display: flex;
+    flex-shrink: 0;
+    height: 40px;
+    width: 81px;
+
+    .ticket-system__zoom-icon-left,
+    .ticket-system__zoom-icon-right{
+      align-items: center;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      width: 50%;
+    }
+
+    .ticket-system__zoom-icon-left{
+      border-radius: 8px 0 0 8px;
+      border-right: 1px solid #c5d2e8;
+
+      .ticket-system__icon__zoom-out{
+
+      }
+    }
+
+    .ticket-system__zoom-icon-right{
+      border-radius: 0 8px 8px 0;
+    }
+  }
+}
