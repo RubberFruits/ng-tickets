@@ -7,5 +7,6 @@ import { ButtonModule } from '../button/button.module'
 @NgModule({
   declarations: [PopupComponent],
   imports: [CommonModule, SliderModule, ButtonModule],
+  exports: [PopupComponent],
 })
 export class PopupModule {}

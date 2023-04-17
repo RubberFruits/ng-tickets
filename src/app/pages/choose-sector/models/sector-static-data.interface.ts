@@ -9,8 +9,10 @@ export interface SectorStaticDataInterface {
   textRotate: string
   textColor: string
   defaultTextColor: string
-  isStatic?: number | undefined
-  freePlaces?: string | null
+  isStatic?: number
+  freePlaces?: string
   minPrice?: string
   maxPrice?: string
+  isAvailable: boolean
+  isSectorInPriceBounds: boolean
 }

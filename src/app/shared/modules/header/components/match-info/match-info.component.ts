@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
+import { MatchInfoInterface } from '../../../../../models/match-info.interface'
 
 @Component({
   selector: 'app-match-info',
@@ -6,18 +7,6 @@ import { Component } from '@angular/core'
   styleUrls: ['./match-info.component.scss'],
 })
 export class MatchInfoComponent {
-  matchInfo: {
-    teams: [
-      {
-        name: 'крылья советов'
-        image: './assets/img/mockup/init-widget-pics/wings.svg'
-      },
-      {
-        name: 'арсенал тула'
-        image: './assets/img/mockup/init-widget-pics/arsenal.svg'
-      }
-    ]
-    date: '30 ОКТ, сб, 20:00'
-  }
+  @Input('matchInfoProps') matchInfo: MatchInfoInterface | null = null
   constructor() {}
 }

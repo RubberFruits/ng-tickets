@@ -1,6 +1,7 @@
 import { TeamsInterface } from './teams.interface'
 import { UserInterface } from './user.interface'
 import { SectorStaticDataInterface } from '../pages/choose-sector/models/sector-static-data.interface'
+import { pagesType } from './pages.type'
 
 export interface WidgetStateInterface {
   arenaId: string
@@ -35,13 +36,6 @@ export interface WidgetStateInterface {
   isAbonement: boolean
   abonementData: AbonementDataInterface | null
 }
-
-type pagesType =
-  | 'choose-sector'
-  | 'choose-place'
-  | 'order-info'
-  | 'error-page'
-  | 'tickets-page'
 
 interface AbonementDataInterface {
   seat: string

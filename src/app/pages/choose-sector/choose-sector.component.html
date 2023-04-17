@@ -1,27 +1,30 @@
-<div class="ticket-system__choose-sector-drawing-block">
+<div
+  (mousemove)="setPopupPosition($event)"
+  class="ticket-system__choose-sector-drawing-block">
   <div class="ticket-system__choose-sector-drawing" id="choose_sector_svg_container">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 870 798">
       <image width="100%" height="100%" xlink:href="/assets/img/arenas/solidarnost-arena.svg" x="0" y="0"></image>
       <path
-        *ngFor="let sector of sectors"
+        *ngFor="let sector of sectors$ | async"
         [attr.data-id]="sector.id"
         [attr.d]="sector.coordinates"
         [attr.fill] = "getInitialSectorColor(sector)"
-        [attr.stroke-dasharray]="getInitialSectorStrokeParams(sector.id).dasharray"
-        [attr.stroke-opacity]="getInitialSectorStrokeParams(sector.id).opacity"
-        [attr.stroke-width]="getInitialSectorStrokeParams(sector.id).width"
-        [attr.stroke]="getInitialSectorStrokeParams(sector.id).color"
-        (mouseenter)="sectorHover(sector.id)"
+        [attr.stroke-dasharray]="getInitialSectorStrokeParams(sector).dasharray"
+        [attr.stroke-opacity]="getInitialSectorStrokeParams(sector).opacity"
+        [attr.stroke-width]="getInitialSectorStrokeParams(sector).width"
+        [attr.stroke]="getInitialSectorStrokeParams(sector).color"
+        (mouseenter)="!isMobile && highlightSector(sector)"
         (mouseleave)="sectorBlur()"
+        (click)="isMobile && highlightSector(sector)"
       ></path>
       <text
-        *ngFor="let sector of sectors"
+        *ngFor="let sector of sectors$ | async"
         [attr.font-family]="'Golos'"
         [attr.font-size]="'10px'"
         [attr.text-anchor]="'middle'"
         [attr.x]="sector.textX"
         [attr.y]="sector.textY"
-        [attr.fill]="sector.textColor"
+        [attr.fill]="sector.isAvailable ? sector.textColor : 'white'"
         style="text-transform: uppercase;font-weight:600;pointer-events:none;"
         [attr.transform]="'rotate(' + sector.textRotate + ' ' +  sector.textX + ' ' + sector.textY + ')'"
       >
@@ -33,4 +36,23 @@
     </svg>
   </div>
 </div>
-<app-sector-popup></app-sector-popup>
+<app-popup
+  *ngIf="popupData.isActive && activeSector"
+  [ngStyle]="{left: popupData.x + 20 + 'px', top: popupData.y - 50 + 'px'}"
+>
+  <div
+    class="ticket-system__popup-choose-sector-content">
+    <div class="ticket-system__popup-choose-sector-decorate" [ngStyle]="{backgroundColor: activeSector.defaultColor}">
+      <div class="ticket-system__popup-choose-sector-decorate-square" [ngStyle]="{backgroundColor: activeSector.defaultColor}"></div>
+    </div>
+    <div class="ticket-system__popup-choose-sector-info">
+      <div class="ticket-system__popup-choose-sector-header">Сектор {{activeSector.name | slice:0:1 | titlecase}}, блок <span [ngStyle]="{color: activeSector.defaultColor}">{{activeSector.name | titlecase}}</span></div>
+      <div class="ticket-system__popup-choose-sector-free-places">{{getFreePlacesText(activeSector)}}</div>
+      <div class="ticket-system__popup-choose-sector-hr"></div>
+      <div
+        *ngIf="activeSector.minPrice !== '0'"
+        class="ticket-system__popup-choose-sector-price"> {{activeSector.minPrice}} ₽</div>
+      <app-button *ngIf="isMobile">Продолжить</app-button>
+    </div>
+  </div>
+</app-popup>

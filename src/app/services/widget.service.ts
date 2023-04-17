@@ -4,47 +4,44 @@ import { ApiInterface } from '../models/api.interface'
 import { GetWidgetDataMockup } from '../mockup/get-widget-data-mockup'
 import { ApiService } from './api.service'
 import { environment } from '../../environments/environment'
+import { BehaviorSubject, map, Observable } from 'rxjs'
+import { GetWidgetDataResponseInterface } from '../models/get-widget-data-response.interface'
+import { pagesType } from '../models/pages.type'
+import { InitialWidgetDataInterface } from '../models/initial-widget-data.interface'
 
 @Injectable({
   providedIn: 'root',
 })
 export class WidgetService {
-  page: string = ''
-  isLoading: boolean = true
+  isLoading$ = new BehaviorSubject<boolean>(true)
+  initialWidgetData$ =
+    new BehaviorSubject<GetWidgetDataResponseInterface | null>(null)
+
+  page$ = new BehaviorSubject<pagesType>('initial')
   matchId: number = 0
   lang: string = 'ru'
-  teams = [
-    {
-      name: '',
-      image: '',
-    },
-    {
-      name: '',
-      image: '',
-    },
-  ]
 
   constructor(private api: ApiService) {}
 
   hidePreloader(): void {
-    this.isLoading = false
+    this.isLoading$.next(false)
   }
 
   showPreloader(): void {
-    this.isLoading = true
+    this.isLoading$.next(true)
   }
 
-  setPage(page: string): void {
-    this.page = page
+  setPage(page: pagesType): void {
+    this.page$.next(page)
   }
 
   getCurrentPage(): string {
-    return this.page
+    return this.page$.getValue()
   }
 
   initWidget(): void {
     const method = '/ajax/getWidgetData/'
-    const path = environment.apiUrl + '/ajax/getWidgetData/'
+    const path = environment.apiUrl + method
 
     this.matchId = this.getMatchId()
     this.lang = this.getLang()
@@ -61,9 +58,9 @@ export class WidgetService {
     }
 
     this.api.post(requestData).subscribe({
-      next: (response) => {
-        this.teams = response.payload.matchInfo.teams
-        this.hidePreloader()
+      next: (response: GetWidgetDataResponseInterface) => {
+        this.initialWidgetData$.next(response)
+        this.setPage('choose-sector')
       },
       error: (response) => {
         this.hidePreloader()
@@ -94,5 +91,19 @@ export class WidgetService {
     }
 
     return 'ru'
+  }
+
+  getInitialWidgetDataFromService(): Observable<InitialWidgetDataInterface | null> {
+    return this.initialWidgetData$.pipe(
+      map((response) => (response ? response.payload : null))
+    )
+  }
+
+  getIsLoadingFromService(): Observable<boolean> {
+    return this.isLoading$
+  }
+
+  getCurrentPageFromService(): Observable<pagesType> {
+    return this.page$
   }
 }

@@ -1,1 +1,7 @@
-<p>button works!</p>
+<button
+  (click)="onClick()"
+  [disabled]="disabled"
+  [class.ticket-system__button]="true"
+>
+  <ng-content></ng-content>
+</button>

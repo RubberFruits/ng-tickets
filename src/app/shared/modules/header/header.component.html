@@ -1,7 +1,7 @@
 <div class="ticket-system__header">
   <div class="ticket-system__header-top">
     <app-return-block *ngIf="!isHided"></app-return-block>
-    <app-match-info></app-match-info>
+    <app-match-info [matchInfoProps]="matchInfo"></app-match-info>
     <app-slider class="hide-mobile"></app-slider>
   </div>
   <div class="ticket-system__filter-button-mob">
