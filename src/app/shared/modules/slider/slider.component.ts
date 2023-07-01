@@ -1,12 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Observable } from 'rxjs'
-import { ChangeContext, Options } from '@angular-slider/ngx-slider'
+import { ChangeContext, NgxSliderModule, Options } from 'ngx-slider-v2'
 import { ChooseSectorService } from '../../../pages/choose-sector/services/choose-sector.service'
+import { NumberFormatPipe } from '../../pipes/number-format.pipe'
+import { AsyncPipe, NgIf } from '@angular/common'
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
+  standalone: true,
+  imports: [NumberFormatPipe, NgIf, NgxSliderModule, AsyncPipe],
 })
 export class SliderComponent implements OnInit, OnDestroy {
   options: Options = {

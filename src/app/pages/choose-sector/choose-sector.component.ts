@@ -5,11 +5,32 @@ import { SectorStaticDataInterface } from './models/sector-static-data.interface
 import { ChooseSectorService } from './services/choose-sector.service'
 import { getRightTerm } from '../../helpers/helper'
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout'
+import { PopupComponent } from '../../shared/modules/popup/popup.component'
+import {
+  AsyncPipe,
+  NgForOf,
+  NgIf,
+  NgStyle,
+  SlicePipe,
+  TitleCasePipe,
+} from '@angular/common'
+import { ButtonComponent } from '../../shared/modules/button/button.component'
 
 @Component({
   selector: 'app-choose-sector',
   templateUrl: './choose-sector.component.html',
   styleUrls: ['./choose-sector.component.scss'],
+  standalone: true,
+  imports: [
+    PopupComponent,
+    NgIf,
+    NgStyle,
+    ButtonComponent,
+    SlicePipe,
+    TitleCasePipe,
+    NgForOf,
+    AsyncPipe,
+  ],
 })
 export class ChooseSectorComponent implements OnInit {
   @Input('arenaIdProps') arenaId!: string

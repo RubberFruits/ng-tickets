@@ -8,8 +8,8 @@ describe('SectorFilterPopupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SectorFilterPopupComponent ]
-    })
+    imports: [SectorFilterPopupComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(SectorFilterPopupComponent);
