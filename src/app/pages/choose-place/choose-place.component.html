@@ -1,1 +1,17 @@
-<p></p>
+<div>
+  <div *ngIf="places"
+       class="ticket-system__choose-places-block"
+       [ngStyle]="{'width.px': +settings.xMax * 24 + 53,'height.px': +settings.yMax * 38 + 53}"
+  >
+    <div
+      *ngFor="let place of places"
+      class="ticket-system__choose-places-item"
+      style="background-color: #ff6b6d;"
+      [ngStyle]="{'left.px': +place.x * 24,'bottom.px': +place.y * 38}"
+    ></div>
+  </div>
+  <div class="ticket-system__choose-places-row-wrapper"></div>
+  <div class="ticket-system__choose-places-arena-block">
+    <div class="ticket-system__choose-places-arena">Поле</div>
+  </div>
+</div>

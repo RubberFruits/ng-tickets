@@ -15,7 +15,7 @@
         [attr.stroke]="getInitialSectorStrokeParams(sector).color"
         (mouseenter)="!isMobile && highlightSector(sector)"
         (mouseleave)="sectorBlur()"
-        (click)="isMobile && highlightSector(sector)"
+        (click)="isMobile ? highlightSector(sector) : navigateToChoosePlace(sector)"
       ></path>
       <text
         *ngFor="let sector of sectors$ | async"

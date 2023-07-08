@@ -5,6 +5,7 @@ import { SectorStaticDataInterface } from './models/sector-static-data.interface
 import { ChooseSectorService } from './services/choose-sector.service'
 import { getRightTerm } from '../../helpers/helper'
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout'
+import { WidgetService } from '../../services/widget.service'
 
 @Component({
   selector: 'app-choose-sector',
@@ -25,7 +26,8 @@ export class ChooseSectorComponent implements OnInit {
 
   constructor(
     private chooseSectorService: ChooseSectorService,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private widgetService: WidgetService
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +50,6 @@ export class ChooseSectorComponent implements OnInit {
   }
 
   highlightSector(sector: SectorStaticDataInterface): void {
-    console.log('1')
     this.chooseSectorService.handleSectorHover(sector)
     if (!sector.isStatic) {
       this.showPopup(sector)
@@ -88,5 +89,10 @@ export class ChooseSectorComponent implements OnInit {
     } else {
       return 'Нет свободных мест'
     }
+  }
+
+  navigateToChoosePlace(sector: SectorStaticDataInterface): void {
+    this.widgetService.showPreloader()
+    this.widgetService.setPage('choose-place')
   }
 }

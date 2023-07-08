@@ -1,8 +1,18 @@
 <div class="ticket-system-wrap" >
-  <app-header *ngIf="initialWidgetData$ | async" [matchInfoProps]="(initialWidgetData$ | async)!.matchInfo || null"></app-header>
+  <app-header
+    *ngIf="initialWidgetData$ | async"
+    [matchInfoProps]="(initialWidgetData$ | async)!.matchInfo || null"
+    [currentPageProps]="currentPage$ | async"
+  ></app-header>
   <div class="ticket-system__content-block" [ngSwitch]="currentPage$ | async">
-    <app-choose-sector [arenaIdProps]="(initialWidgetData$ | async)!.arenaId" *ngSwitchCase="'choose-sector'"></app-choose-sector>
-    <app-choose-place *ngSwitchCase="'choose-place'"></app-choose-place>
+    <app-choose-sector
+      *ngSwitchCase="'choose-sector'"
+      [arenaIdProps]="(initialWidgetData$ | async)!.arenaId"
+    ></app-choose-sector>
+    <app-choose-place
+      *ngSwitchCase="'choose-place'"
+      [arenaIdProps]="(initialWidgetData$ | async)!.arenaId"
+    ></app-choose-place>
     <app-order-info *ngSwitchCase="'order-info'"></app-order-info>
   </div>
   <app-preloader *ngIf="isLoading$ | async"></app-preloader>

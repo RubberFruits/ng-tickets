@@ -8,6 +8,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs'
 import { GetWidgetDataResponseInterface } from '../models/get-widget-data-response.interface'
 import { pagesType } from '../models/pages.type'
 import { InitialWidgetDataInterface } from '../models/initial-widget-data.interface'
+import { SectorStaticDataInterface } from '../pages/choose-sector/models/sector-static-data.interface'
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +17,9 @@ export class WidgetService {
   isLoading$ = new BehaviorSubject<boolean>(true)
   initialWidgetData$ =
     new BehaviorSubject<GetWidgetDataResponseInterface | null>(null)
-
   page$ = new BehaviorSubject<pagesType>('initial')
+  chosenSector$ = new BehaviorSubject<SectorStaticDataInterface | null>(null)
+
   matchId: number = 0
   lang: string = 'ru'
 
@@ -105,5 +107,13 @@ export class WidgetService {
 
   getCurrentPageFromService(): Observable<pagesType> {
     return this.page$
+  }
+
+  setChosenSector(sector: SectorStaticDataInterface): void {
+    this.chosenSector$.next(sector)
+  }
+
+  getChosenSector(): SectorStaticDataInterface | null {
+    return this.chosenSector$.getValue()
   }
 }

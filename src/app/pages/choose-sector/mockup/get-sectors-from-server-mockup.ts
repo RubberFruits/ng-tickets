@@ -251,7 +251,6 @@ export class GetSectorsFromServerMockup {
           },
         ],
         status: 'success',
-        /*statusCode: '20124'*/
       },
       resultCode: '200',
     },
